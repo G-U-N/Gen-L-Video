@@ -80,6 +80,8 @@ Current methodologies for video generation and editing, while innovative, are of
 
 ## Results
 
+Most of the results can be generated with a single RTX 3090.
+
 #### Multi-Text Conditioned Long Video Generation
 
 
