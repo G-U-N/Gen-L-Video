@@ -10,6 +10,8 @@ This repository is the official implementation of [Gen-L-Video](https://arxiv.or
 
 ---
 
+<img src="./statics/imgs/logo.png" alt="logo" width=500px />
+
 <p align="center">
   <a href="#Introduction">Introduction</a> •
   <a href="#Comparisons">Comparisons</a> •  
@@ -20,7 +22,7 @@ This repository is the official implementation of [Gen-L-Video](https://arxiv.or
   <a href="#Citation">Citation</a> •
   <a href="#Contact">Contact</a>
 </p>
-
+---
 
 ## Introduction
 
