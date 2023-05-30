@@ -6,7 +6,7 @@ This repository is the official implementation of [Gen-L-Video](https://arxiv.or
 **[Gen-L-Video: Multi-Text Conditioned Long Video Generation via Temporal Co-Denoising](https://arxiv.org/abs/2305.18264)** <br/>
 [Fu-Yun Wang](https://g-u-n.github.io), [Wenshuo Chen](https://github.com/winshot-thu), [Guanglu Song](https://songguanglu.github.io/), [Han-Jia Ye](https://www.lamda.nju.edu.cn/yehj/), [Yu Liu](https://liuyu.us), [Hongsheng Li](https://www.ee.cuhk.edu.hk/~hsli/) <br/>
 
-[![Project Website](https://img.shields.io/badge/Project-Website-orange)](https://github.com/G-U-N/Gen-L-Video)[![arXiv](https://img.shields.io/badge/arXiv-2305.18264-b31b1b.svg)](https://arxiv.org/abs/2305.18264)
+[![Project Website](https://img.shields.io/badge/Project-Website-orange)](https://g-u-n.github.io/projects/gen-long-video/index.html)[![arXiv](https://img.shields.io/badge/arXiv-2305.18264-b31b1b.svg)](https://arxiv.org/abs/2305.18264)
 
 ---
 
@@ -21,6 +21,7 @@ This repository is the official implementation of [Gen-L-Video](https://arxiv.or
   <a href="#Contact">Contact</a>
 </p>
 
+
 ## Introduction
 
 **TL;DR:** **A** <font color=#FF2000> ***universal***</font>  **methodology that extends short video diffusion models for efficient** <font color=#FF2000>***multi-text conditioned long video***</font>  **generation and editing.**
@@ -32,6 +33,10 @@ Current methodologies for video generation and editing, while innovative, are of
 <br>
 <em>Essentially, this procedure establishes an abstract long video generator and editor without necessitating any additional training, enabling the generation and editing of videos of any length using established short video generation and editing methodologies.</em>
 </p>
+## News
+
+- **[2023.05.30]**: Our paper is now available on [arXiv](https://arxiv.org/abs/2305.18264). 
+- **[2023.05.30]**: Our project page is now available on [gen-long-video](https://g-u-n.github.io/projects/gen-long-video/index.html).
 
 ## Comparisons
 
