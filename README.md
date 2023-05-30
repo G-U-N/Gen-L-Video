@@ -20,6 +20,7 @@ This repository is the official implementation of [Gen-L-Video](https://arxiv.or
   <a href="#Citation">Citation</a> •
   <a href="#Contact">Contact</a>
 </p>
+
 ## Introduction
 
 **TL;DR:** **A** <font color=#FF2000> ***universal***</font>  **methodology that extends short video diffusion models for efficient** <font color=#FF2000>***multi-text conditioned long video***</font>  **generation and editing.**
