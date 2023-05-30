@@ -84,7 +84,9 @@ The code will soon be open source.
 
 #### Multi-Text Conditioned Long Video Generation
 
-<video src="./statics/vids/demon_slayer.mp4" width=600px></video>
+
+https://github.com/G-U-N/Gen-L-Video/assets/60997859/9b370894-708a-4ed2-a2ac-abfa93829ea6
+
 
 This video containing clips bearing various semantic information. 
 
