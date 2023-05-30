@@ -15,9 +15,12 @@ This repository is the official implementation of [Gen-L-Video](https://arxiv.or
   <a href="#Comparisons">Comparisons</a> •  
   <a href="#Setup">Setup</a> •
   <a href="#Results">Results</a> •  
+   <a href="#Relevant-Works">Relevant Works</a> •   
   <a href="#Citation">Citation</a> •
   <a href="#Contact">Contact</a>
 </p>
+
+
 
 ## Introduction
 
@@ -242,6 +245,26 @@ All the following videos are directly generated with the pre-trained VideoCrafte
   <td><img src="./statics/gifs/surf-skiing.gif"></td> 
 </tr>
 </table>
+
+## Relevant Works
+`Tune-A-Video`: One-Shot Tuning of Image Diffusion Models for Text-to-Video Generation. [[paper](https://arxiv.org/abs/2212.11565)] [[code](https://github.com/showlab/Tune-A-Video)]
+
+`Fate-Zero`: Fusing Attentions for Zero-shot Text-based Video Editing. [[paper](https://arxiv.org/abs/2303.09535)] [[code](https://github.com/ChenyangQiQi/FateZero)]
+
+`Pix2Video`: Video Editing using Image Diffusion. [[paper](https://arxiv.org/abs/2303.12688)] [[code](https://github.com/G-U-N/Pix2Video.pytorch)]
+
+`VideoCrafter`: A Toolkit for Text-to-Video Generation and Editing. [[paper](https://arxiv.org/abs/2211.13221)] [[code](https://github.com/VideoCrafter/VideoCrafter)] 
+
+`ControlVideo`: Training-free Controllable Text-to-Video Generation. [[paper](https://arxiv.org/abs/2305.13077)] [[code](https://github.com/YBYBZhang/ControlVideo)]
+
+`Text2Video-Zero`: Text-to-Image Diffusion Models are Zero-Shot Video Generators. [[paper](https://arxiv.org/abs/2303.13439)] [[code](https://github.com/Picsart-AI-Research/Text2Video-Zero)]
+
+Other relevant works about video generation/editing can be obtained by this repo: [Awesome-Video-Diffusion](https://github.com/showlab/Awesome-Video-Diffusion).
+
+## Acknowledgments
+
+- This code is heavily built upon [diffusers](https://github.com/huggingface/diffusers) and [Tune-A-Video](https://github.com/showlab/Tune-A-Video). If you use this code in your research, please also acknowledge their work.
+- This project leverages [Stable-Diffusion](https://github.com/CompVis/stable-diffusion),[Stable-Diffusion-Inpaint](https://huggingface.co/runwayml/stable-diffusion-inpainting), [Stable-Diffusion-Depth](https://huggingface.co/runwayml/stable-diffusion-inpainting) , [LoRA](https://github.com/cloneofsimo/lora), [CLIP](https://github.com/openai/CLIP), [VideoCrafter](https://github.com/VideoCrafter/VideoCrafter), [ControlNet](https://github.com/lllyasviel/ControlNet), [T2I-Adapter](https://github.com/TencentARC/T2I-Adapter), [GroundingDINO](https://github.com/IDEA-Research/GroundingDINO),[Edit-Anything](https://github.com/sail-sg/EditAnything) and [Segment Anything](https://github.com/facebookresearch/segment-anything). We thank them for open-sourcing the code and pre-trained models.
 
 ## Citation
 
