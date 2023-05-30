@@ -33,6 +33,7 @@ Current methodologies for video generation and editing, while innovative, are of
 <br>
 <em>Essentially, this procedure establishes an abstract long video generator and editor without necessitating any additional training, enabling the generation and editing of videos of any length using established short video generation and editing methodologies.</em>
 </p>
+
 ## News
 
 - **[2023.05.30]**: Our paper is now available on [arXiv](https://arxiv.org/abs/2305.18264). 
