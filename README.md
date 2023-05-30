@@ -78,10 +78,6 @@ Current methodologies for video generation and editing, while innovative, are of
 </tr>
 </table>
 
-## Setup
-
-The code will soon be open source.
-
 ## Results
 
 #### Multi-Text Conditioned Long Video Generation
