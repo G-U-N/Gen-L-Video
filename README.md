@@ -43,6 +43,7 @@ Current methodologies for video generation and editing, while innovative, are of
 - **[2023.05.30]**: Our paper is now available on [arXiv](https://arxiv.org/abs/2305.18264). 
 - **[2023.05.30]**: Our project page is now available on [gen-long-video](https://g-u-n.github.io/projects/gen-long-video/index.html).
 
+The basic code is going to be released in 2023.06.01.  
 ## Comparisons
 
 <table class="center">
