@@ -1,4 +1,4 @@
-# Gen-L-Video
+# Gen-L-Video: Long Video Generation via Temporal Co-Denoising
 
 
 This repository is the official implementation of [Gen-L-Video](https://arxiv.org/abs/2305.18264).
@@ -28,7 +28,7 @@ This repository is the official implementation of [Gen-L-Video](https://arxiv.or
 
 ## Introduction
 
-**TL;DR:** **A** <font color=#FF2000> ***universal***</font>  **methodology that extends short video diffusion models for efficient** <font color=#FF2000>***multi-text conditioned long video***</font>  **generation and editing.**
+🔥🔥 **TL;DR:** **A** <font color=#FF2000> ***universal***</font>  **methodology that extends short video diffusion models for efficient** <font color=#FF2000>***multi-text conditioned long video***</font>  **generation and editing.**
 
 Current methodologies for video generation and editing, while innovative, are often confined to extremely short videos (typically **less than 24 frames**) and are **limited to a single text condition**. These constraints significantly limit their applications given that real-world videos usually consist of multiple segments, each bearing different semantic information. To address this challenge, we introduce a novel paradigm dubbed as ***Gen-L-Video*** capable of extending off-the-shelf short video diffusion models for generating and editing videos comprising **hundreds of frames** with **diverse semantic segments** ***without introducing additional training, all while preserving content consistency***.
 
@@ -42,9 +42,142 @@ Current methodologies for video generation and editing, while innovative, are of
 
 - **[2023.05.30]**: Our paper is now available on [arXiv](https://arxiv.org/abs/2305.18264). 
 - **[2023.05.30]**: Our project page is now available on [gen-long-video](https://g-u-n.github.io/projects/gen-long-video/index.html).
-- **[2023.06.01]**: Basic code framework is open-sourced [GLV](https://github.com/G-U-N/Gen-L-Video).
+- **[2023.06.01]**: Basic code framework is now open-sourced [GLV](https://github.com/G-U-N/Gen-L-Video).
+- **[2023.06.01]**: scripts: [one-shot-tuning](https://github.com/G-U-N/Gen-L-Video/blob/master/one-shot-tuning.py), [tuning-free-mix](https://github.com/G-U-N/Gen-L-Video/blob/master/tuning-free-mix.py), [tuning-free-inpaint](https://github.com/G-U-N/Gen-L-Video/blob/master/tuning-free-inpaint.py) is now available. 
 
-More training/inference scripts will be released in a few days.
+🤗🤗🤗More training/inference scripts will be available in a few days.
+
+## Setup
+
+Feel free to open issues for any possible setup problems.
+
+#### Install Environment via Anaconda
+
+```shell
+conda env create -f environment.yml
+conda activate glv
+```
+
+### Install Grounding DINO and SAM
+
+```SHELL
+pip install git+https://github.com/facebookresearch/segment-anything.git
+pip install git+https://github.com/IDEA-Research/GroundingDINO.git
+```
+
+or 
+
+```shell
+git clone https://github.com/facebookresearch/segment-anything.git
+cd segment-anything
+pip install -e .
+cd ..
+git clone https://github.com/IDEA-Research/GroundingDINO.git
+cd GroundingDINO
+pip install -e .
+```
+
+Note that if you are using GPU clusters that the management node has no access to GPU resources, you should submit the `pip install -e . ` to the computing node as a computing task when building the GroundingDINO. Otherwise, it will not support detection computing through GPU.
+
+#### Download Pretrained Weights
+
+```shell
+mkdir weights
+cd weights
+
+# Vit-H SAM model.
+wget https://dl.fbaipublicfiles.com/segment_anything/sam_vit_h_4b8939.pth
+
+# Part Grounding Swin-Base Model.
+wget https://github.com/Cheems-Seminar/segment-anything-and-name-
+it/releases/download/v1.0/swinbase_part_0a0000.pth
+
+# Grounding DINO Model. 
+wget https://github.com/IDEA-Research/GroundingDINO/releases/download/v0.1.0-alpha2/groundingdino_swinb_cogcoor.pth
+
+Download the Pretrained T2I-Adapters
+git clone https://huggingface.co/TencentARC/T2I-Adapter
+```
+
+After downloading them, you should specify the absolute/relative path of them in the config files.
+
+
+If you download all the above pretrained weights in the folder `weights` , set the configs files as follows:
+1. In `configs/tuning-free-inpaint/girl-glass.yaml`
+```yaml
+sam_checkpoint: "weights/sam_vit_h_4b8939.pth"
+groundingdino_checkpoint: "weights/groundingdino_swinb_cogcoor.pth"
+```
+2. In `one-shot-tuning.py`, set
+```python
+adapter_paths={
+    "pose":"weights/T2I-Adapter/models/t2iadapter_openpose_sd14v1.pth",
+    "sketch":"weights/T2I-Adapter/models/t2iadapter_sketch_sd14v1.pth",
+    "seg": "weights/T2I-Adapter/models/t2iadapter_seg_sd14v1.pth",
+    "depth":"weights/T2I-Adapter/models/t2iadapter_depth_sd14v1.pth",
+    "canny":"weights/T2I-Adapter/models/t2iadapter_canny_sd14v1.pth"
+}
+```
+
+Then all the other weights are able to be automatically downloaded through the API of Hugging Face.
+
+#### For users who are unable to download weights automatically
+
+Here is an additional instruction for installing and running grounding dino.
+
+```shell
+cd GroundingDINO/groundingdino/config/
+vim GroundingDINO_SwinB_cfg.py
+```
+
+set
+
+```py
+text_encoder_type = "[Your Path]/bert-base-uncased"
+```
+
+Then 
+
+```shell
+vim GroundingDINO/groundingdino/util/get_tokenlizer.py
+```
+
+Set
+
+```python
+def get_pretrained_language_model(text_encoder_type):
+    if text_encoder_type == "bert-base-uncased" or text_encoder_type.split("/")[-1]=="bert-base-uncased":
+        return BertModel.from_pretrained(text_encoder_type)
+    if text_encoder_type == "roberta-base":
+        return RobertaModel.from_pretrained(text_encoder_type)
+    raise ValueError("Unknown text_encoder_type {}".format(text_encoder_type))
+```
+
+Now you should be able to run your Grounding DINO with pre-downloaded bert weights. 
+
+## Inference
+
+1. One-Shot Tuning Method
+
+```shell
+accelerate launch one-shot-tuning.py --control=[your control]
+```
+
+`[your control]` can be set as `pose` , `depth`, `seg`, `sketch`, `canny`.  
+
+`pose` and `depth` are recommended.
+
+2. Tuning-Free Method for videos with smooth semantic changes.
+
+ ```shell
+ accelerate launch tuning-free-mix.py
+ ```
+
+3. Tuning-Free Edit Anything in Videos. 
+
+```shell
+accelerate launch tuning-free-inpaint.py
+```
 
 ## Comparisons
 
@@ -280,13 +413,11 @@ Other relevant works about video generation/editing can be obtained by this repo
 
 If you use any content of this repo for your work, please cite the following bib entry:
 ```bibtex
-@misc{wang2023genlvideo,
-      title={Gen-L-Video: Multi-Text to Long Video Generation via Temporal Co-Denoising}, 
-      author={Fu-Yun Wang and Wenshuo Chen and Guanglu Song and Han-Jia Ye and Yu Liu and Hongsheng Li},
-      year={2023},
-      eprint={2305.18264},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
+@article{wang2023gen,
+  title={Gen-L-Video: Multi-Text to Long Video Generation via Temporal Co-Denoising},
+  author={Wang, Fu-Yun and Chen, Wenshuo and Song, Guanglu and Ye, Han-Jia and Liu, Yu and Li, Hongsheng},
+  journal={arXiv preprint arXiv:2305.18264},
+  year={2023}
 }
 ```
 
