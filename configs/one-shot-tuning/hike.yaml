@@ -1,6 +1,6 @@
 # The Minimum VRAM Requirement is around 30 GB for batchsize 3. Longer video will not cost more.
 # Adjust the batch size to fully utilize your GPU resources.
-pretrained_model_path: "andite/anything-v4.0" # 
+pretrained_model_path: "andite/anything-v4.0" # change 
 output_dir: "./results/one-shot-tuning-t2v/"
 
 

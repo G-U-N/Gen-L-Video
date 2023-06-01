@@ -10,9 +10,6 @@ This repository is the official implementation of [Gen-L-Video](https://arxiv.or
 
 ---
 
-<div align="center">
-<img src="./statics/imgs/logo.png" alt="logo" width=400px />
-</div>
 
 
 <p align="center">
@@ -43,7 +40,8 @@ Current methodologies for video generation and editing, while innovative, are of
 - **[2023.05.30]**: Our paper is now available on [arXiv](https://arxiv.org/abs/2305.18264). 
 - **[2023.05.30]**: Our project page is now available on [gen-long-video](https://g-u-n.github.io/projects/gen-long-video/index.html).
 - **[2023.06.01]**: Basic code framework is now open-sourced [GLV](https://github.com/G-U-N/Gen-L-Video).
-- **[2023.06.01]**: scripts: [one-shot-tuning](https://github.com/G-U-N/Gen-L-Video/blob/master/one-shot-tuning.py), [tuning-free-mix](https://github.com/G-U-N/Gen-L-Video/blob/master/tuning-free-mix.py), [tuning-free-inpaint](https://github.com/G-U-N/Gen-L-Video/blob/master/tuning-free-inpaint.py) is now available. 
+- **[2023.06.01]**: Scripts: [one-shot-tuning](https://github.com/G-U-N/Gen-L-Video/blob/master/one-shot-tuning.py), [tuning-free-mix](https://github.com/G-U-N/Gen-L-Video/blob/master/tuning-free-mix.py), [tuning-free-inpaint](https://github.com/G-U-N/Gen-L-Video/blob/master/tuning-free-inpaint.py) is now available. 
+- **[2023.06.02]**: Scripts for preparing control videos including `canny`, `hough`, `hed`, `scribble`,`fake_scribble`, `pose`, `seg`, `depth`, and `normal` is now available, following the instructions to get your own control videos.
 
 🤗🤗🤗More training/inference scripts will be available in a few days.
 
@@ -155,6 +153,18 @@ def get_pretrained_language_model(text_encoder_type):
 
 Now you should be able to run your Grounding DINO with pre-downloaded bert weights. 
 
+#### Get your own control videos
+
+ ```shell
+ git clone https://github.com/lllyasviel/ControlNet.git
+ cd ControlNet
+ git checkout f4748e3
+ mv ../process_data.py .
+ python process_data.py --v_path=../data --t_path==../t_data --c_path==../c_data --fps=10
+ ```
+
+
+
 ## Inference
 
 1. One-Shot Tuning Method
@@ -178,6 +188,8 @@ accelerate launch one-shot-tuning.py --control=[your control]
 ```shell
 accelerate launch tuning-free-inpaint.py
 ```
+
+
 
 ## Comparisons
 
