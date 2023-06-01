@@ -1,0 +1,49 @@
+# The Minimum VRAM Requirement is around 30 GB for batchsize 3. Longer video will not cost more.
+# Adjust the batch size to fully utilize your GPU resources.
+pretrained_model_path: "andite/anything-v4.0" # 
+output_dir: "./results/one-shot-tuning-t2v/"
+
+
+video_name: "hike"
+train_data:
+  n_sample_frames: 16
+  width: 512
+  height: 512
+  sample_start_idx: 0
+  sample_frame_rate: 6
+  prompt: "A man is walking in the mountain."
+validation_data:
+  video_length: 16
+  width: 512
+  height: 512
+  num_inference_steps: 50
+  guidance_scale: 12.5
+  use_inv_latent: True
+  num_inv_steps: 50
+  stride: 4
+  prompts:
+  - "masterpiece, 4k, best quality, 1girl is walking in the mountain, female child, agnes, black hair, brown eyes, high ponytail, sidelocks, overalls, shirt, shoes, smile."
+  - "masterpiece, 4k, best quality, 1girl is walking on the moon, female child, agnes, black hair, brown eyes, high ponytail, sidelocks, overalls, shirt, shoes, smile."
+  - "masterpiece, 4k, best quality, 1girl is walking in the sea, female child, agnes, black hair, brown eyes, high ponytail, sidelocks, overalls, shirt, shoes, smile."
+  - "masterpiece, 4k, best quality, 1girl is walking in the forest, female child, agnes, black hair, brown eyes, high ponytail, sidelocks, overalls, shirt, shoes, smile."
+cond_prob: 0.9
+learning_rate: 3e-5
+train_batch_size: 3
+max_train_steps: 200
+checkpointing_steps: 200
+validation_steps: 40
+start_validatoin_steps: -1
+trainable_modules:
+  - "attn_temp"
+  # - "id_embedding"
+  - "attn1.to_q"
+  - "attn2.to_q"
+seed: 33
+mixed_precision: fp16
+use_8bit_adam: False
+gradient_checkpointing: True
+enable_xformers_memory_efficient_attention: True
+clip_drop_prob: [[200,0.4]]
+lora_r: 16
+scale_lr: True
+run_isolated: False

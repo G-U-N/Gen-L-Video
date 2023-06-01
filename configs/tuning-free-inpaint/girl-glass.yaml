@@ -1,0 +1,36 @@
+# The Minimum VRAM Requirement is around 16-20 GB. Longer video will not cost more.
+pretrained_model_path: "stabilityai/stable-diffusion-2-inpainting"
+output_dir: "./results/tuning-free-inpaint/girl-glass"
+
+train_data:
+  video_path: "data/girl-glass.mp4"
+  prompt: "a girl wearing sunglasses, in water"
+  n_sample_frames: 15
+  width: 512
+  height: 512
+  sample_start_idx: 0
+  sample_frame_rate: 2
+controlnet_path: "shgao/edit-anything-v0-3"
+controlnet_scale: 0.8
+mask_prompt: "sunglasses"
+sam_checkpoint: "[your path]/sam_vit_h_4b8939.pth"
+groundingdino_checkpoint: "[your path]/groundingdino_swinb_cogcoor.pth"
+groundingdino_config_file: "./GroundingDINO/groundingdino/config/GroundingDINO_SwinB.cfg.py"
+validation_data:
+  prompts:
+    - "pink sunglasses"
+    - "goggles"
+  video_length: 15
+  width: 512
+  height: 512
+  num_inference_steps: 50
+  guidance_scale: 12.5
+  use_inv_latent: True
+  num_inv_steps: 50
+  stride: 5
+  use_l2: False
+
+train_batch_size: 1
+seed: 33
+mixed_precision: fp16
+enable_xformers_memory_efficient_attention: True
