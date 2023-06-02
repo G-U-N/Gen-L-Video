@@ -99,6 +99,7 @@ wget https://github.com/IDEA-Research/GroundingDINO/releases/download/v0.1.0-alp
 
 # Download the Pretrained T2I-Adapters
 git clone https://huggingface.co/TencentARC/T2I-Adapter
+# if lfs is not installed
 cd T2I-Adapter
 git lfs install
 git lfs pull
