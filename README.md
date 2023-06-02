@@ -55,6 +55,7 @@ Feel free to open issues for any possible setup problems.
 ```shell
 conda env create -f requirements.yml
 conda activate glv
+conda install pytorch==1.13.1 torchvision==0.14.1 torchaudio==0.13.1 pytorch-cuda=11.6 -c pytorch -c nvidia
 ```
 
 ### Install Grounding DINO and SAM
@@ -71,6 +72,7 @@ git clone https://github.com/facebookresearch/segment-anything.git
 cd segment-anything
 pip install -e .
 cd ..
+# If you have a CUDA environment, please make sure the environment variable CUDA_HOME is set. 
 git clone https://github.com/IDEA-Research/GroundingDINO.git
 cd GroundingDINO
 pip install -e .
@@ -94,8 +96,12 @@ it/releases/download/v1.0/swinbase_part_0a0000.pth
 # Grounding DINO Model. 
 wget https://github.com/IDEA-Research/GroundingDINO/releases/download/v0.1.0-alpha2/groundingdino_swinb_cogcoor.pth
 
-Download the Pretrained T2I-Adapters
+
+# Download the Pretrained T2I-Adapters
 git clone https://huggingface.co/TencentARC/T2I-Adapter
+cd T2I-Adapter
+git lfs install
+git lfs pull
 ```
 
 After downloading them, you should specify the absolute/relative path of them in the config files.

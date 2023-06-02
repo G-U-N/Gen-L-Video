@@ -125,9 +125,6 @@ dependencies:
     - timm==0.6.13
     - tokenizers==0.13.2
     - tomli==2.0.1
-    - torch==1.13.1+cu116
-    - torchaudio==0.13.1
-    - torchvision==0.14.1+cu116
     - tornado==6.2
     - tqdm==4.65.0
     - traitlets==5.9.0
@@ -144,4 +141,8 @@ dependencies:
     - yapf==0.33.0
     - yarg==0.1.9
     - zipp==3.15.0
+    - scipy==1.10.1
+    - scikit-image==0.21.0
+    - prettytable==3.6.0
+    - moviepy==1.0.3
 
