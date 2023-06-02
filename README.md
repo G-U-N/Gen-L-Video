@@ -53,7 +53,7 @@ Feel free to open issues for any possible setup problems.
 #### Install Environment via Anaconda
 
 ```shell
-conda env create -f environment.yml
+conda env create -f requirements.yml
 conda activate glv
 ```
 
