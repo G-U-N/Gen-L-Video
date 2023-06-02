@@ -42,6 +42,7 @@ Current methodologies for video generation and editing, while innovative, are of
 - **[2023.06.01]**: Basic code framework is now open-sourced [GLV](https://github.com/G-U-N/Gen-L-Video).
 - **[2023.06.01]**: Scripts: [one-shot-tuning](https://github.com/G-U-N/Gen-L-Video/blob/master/one-shot-tuning.py), [tuning-free-mix](https://github.com/G-U-N/Gen-L-Video/blob/master/tuning-free-mix.py), [tuning-free-inpaint](https://github.com/G-U-N/Gen-L-Video/blob/master/tuning-free-inpaint.py) is now available. 
 - **[2023.06.02]**: Scripts for preparing control videos including `canny`, `hough`, `hed`, `scribble`,`fake_scribble`, `pose`, `seg`, `depth`, and `normal` is now available, following the [instruction](https://github.com/G-U-N/Gen-L-Video#get-your-own-control-videos) to get your own control videos.
+- **[2023.06.02]**: We now support very long Pose-to-Video generation with pretrained [Follow-Your-Pose](https://github.com/mayuelala/FollowYourPose) and extend it to multi-text conditioned without introducing higher computation or VRAM requirement.
 
 🤗🤗🤗More training/inference scripts will be available in a few days.
 
