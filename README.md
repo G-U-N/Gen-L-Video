@@ -114,6 +114,7 @@ If you download all the above pretrained weights in the folder `weights` , set t
 ```yaml
 sam_checkpoint: "weights/sam_vit_h_4b8939.pth"
 groundingdino_checkpoint: "weights/groundingdino_swinb_cogcoor.pth"
+controlnet_path: "weights/edit-anything-v0-3"
 ```
 2. In `one-shot-tuning.py`, set
 ```python
@@ -124,6 +125,10 @@ adapter_paths={
     "depth":"weights/T2I-Adapter/models/t2iadapter_depth_sd14v1.pth",
     "canny":"weights/T2I-Adapter/models/t2iadapter_canny_sd14v1.pth"
 }
+```
+3. In `configs/one-shot-tuning/hike.yaml`, set
+```yaml
+pretrained_model_path: "andite/anything-v4.0"
 ```
 
 Then all the other weights are able to be automatically downloaded through the API of Hugging Face.
