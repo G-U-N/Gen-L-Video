@@ -81,6 +81,7 @@ pip install -e .
 Note that if you are using GPU clusters that the management node has no access to GPU resources, you should submit the `pip install -e . ` to the computing node as a computing task when building the GroundingDINO. Otherwise, it will not support detection computing through GPU.
 
 #### Download Pretrained Weights
+Make sure git-lfs is available. See: https://github.com/git-lfs/git-lfs/blob/main/INSTALLING.md
 
 ```shell
 mkdir weights
@@ -90,8 +91,7 @@ cd weights
 wget https://dl.fbaipublicfiles.com/segment_anything/sam_vit_h_4b8939.pth
 
 # Part Grounding Swin-Base Model.
-wget https://github.com/Cheems-Seminar/segment-anything-and-name-
-it/releases/download/v1.0/swinbase_part_0a0000.pth
+wget https://github.com/Cheems-Seminar/segment-anything-and-name-it/releases/download/v1.0/swinbase_part_0a0000.pth
 
 # Grounding DINO Model. 
 wget https://github.com/IDEA-Research/GroundingDINO/releases/download/v0.1.0-alpha2/groundingdino_swinb_cogcoor.pth
@@ -99,10 +99,11 @@ wget https://github.com/IDEA-Research/GroundingDINO/releases/download/v0.1.0-alp
 
 # Download the Pretrained T2I-Adapters
 git clone https://huggingface.co/TencentARC/T2I-Adapter
-# if lfs is not installed
-cd T2I-Adapter
-git lfs install
-git lfs pull
+
+# Optional 
+git clone https://huggingface.co/andite/anything-v4.0
+git clone https://huggingface.co/shgao/edit-anything-v0-3
+git clone https://huggingface.co/stabilityai/stable-diffusion-2-depth
 ```
 
 After downloading them, you should specify the absolute/relative path of them in the config files.
@@ -132,7 +133,10 @@ Then all the other weights are able to be automatically downloaded through the A
 Here is an additional instruction for installing and running grounding dino.
 
 ```shell
-cd GroundingDINO/groundingdino/config/
+# Notice: If you use 'pip install git+https://github.com/IDEA-Research/GroundingDINO.git'
+# You should modify GroundingDINO_SwinB_cfg.py in python site-packages directory
+# e.g. ~/miniconda3/envs/glv/lib/python3.8/site-packages/groundingdino/config/GroundingDINO_SwinB_cfg.py
+cd GroundingDINO/groundingdino/config/ 
 vim GroundingDINO_SwinB_cfg.py
 ```
 
