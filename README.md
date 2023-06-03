@@ -251,15 +251,8 @@ Most of the results can be generated with a single RTX 3090.
 #### Multi-Text Conditioned Long Video Generation
 
 
-<!-- https://github.com/G-U-N/Gen-L-Video/assets/60997859/9b370894-708a-4ed2-a2ac-abfa93829ea6 -->
+https://github.com/G-U-N/Gen-L-Video/assets/60997859/9b370894-708a-4ed2-a2ac-abfa93829ea6
 
-
-<!-- This video containing clips bearing various semantic information.  -->
-
-<video autoplay controls>
-  <source src="https://github.com/G-U-N/Gen-L-Video/assets/60997859/9b370894-708a-4ed2-a2ac-abfa93829ea6" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
 
 This video containing clips bearing various semantic information. 
 
