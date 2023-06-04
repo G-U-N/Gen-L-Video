@@ -393,6 +393,8 @@ All the following videos are directly generated with the pre-trained VideoCrafte
     <td width=25% style="text-align:center;">"A car is moving on the road." (Gen-L-Video)</td>
 </tr>
 </table>
+
+
 #### Follow-Your-Pose: Long Video Generation with Pretrained Pose-to-Video
 
 The original generated videos (gifs) are over 100 MB, we compress them to upload them to GitHub.
