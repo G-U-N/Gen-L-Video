@@ -59,13 +59,10 @@ opencv-python==4.7.0.72
 parso==0.8.3
 pexpect==4.8.0
 pickleshare==0.7.5
-pipreqs==0.4.13
 platformdirs==3.2.0
 protobuf==4.22.1
 ptyprocess==0.7.0
 pure-eval==0.2.2
-pyasn1==0.4.8
-pyasn1-modules==0.2.8
 pycocotools==2.0.6
 pygments==2.14.0
 pyparsing==3.0.9
