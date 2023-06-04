@@ -6,7 +6,8 @@ This repository is the official implementation of [Gen-L-Video](https://arxiv.or
 **[Gen-L-Video: Multi-Text Conditioned Long Video Generation via Temporal Co-Denoising](https://arxiv.org/abs/2305.18264)** <br/>
 [Fu-Yun Wang](https://g-u-n.github.io), [Wenshuo Chen](https://winshot-thu.github.io/), [Guanglu Song](https://songguanglu.github.io/), [Han-Jia Ye](https://www.lamda.nju.edu.cn/yehj/), [Yu Liu](https://liuyu.us), [Hongsheng Li](https://www.ee.cuhk.edu.hk/~hsli/) <br/>
 
-[![Project Website](https://img.shields.io/badge/Project-Website-orange)](https://g-u-n.github.io/projects/gen-long-video/index.html)[![arXiv](https://img.shields.io/badge/arXiv-2305.18264-b31b1b.svg)](https://arxiv.org/abs/2305.18264)
+[![Project Website](https://img.shields.io/badge/Project-Website-orange)](https://g-u-n.github.io/projects/gen-long-video/index.html) [![arXiv](https://img.shields.io/badge/arXiv-2305.18264-b31b1b.svg)](https://arxiv.org/abs/2305.18264) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1bWROxCbt7XFHTiz5G8T4ILZBtMjtOpDn?usp=sharing)
+
 
 ---
 
@@ -43,6 +44,7 @@ Current methodologies for video generation and editing, while innovative, are of
 - **[2023.06.01]**: Scripts: [one-shot-tuning](https://github.com/G-U-N/Gen-L-Video/blob/master/one-shot-tuning.py), [tuning-free-mix](https://github.com/G-U-N/Gen-L-Video/blob/master/tuning-free-mix.py), [tuning-free-inpaint](https://github.com/G-U-N/Gen-L-Video/blob/master/tuning-free-inpaint.py) is now available. 
 - **[2023.06.02]**: Scripts for preparing control videos including `canny`, `hough`, `hed`, `scribble`,`fake_scribble`, `pose`, `seg`, `depth`, and `normal` is now available, following the [instruction](https://github.com/G-U-N/Gen-L-Video#get-your-own-control-videos) to get your own control videos.
 - **[2023.06.04]**: We now support very long Pose-to-Video generation with pretrained [Follow-Your-Pose](https://github.com/mayuelala/FollowYourPose) and extend it to multi-text conditioned without introducing higher computation or VRAM requirements. 
+- **[2023.06.04]**: [Colab demo](https://colab.research.google.com/drive/1bWROxCbt7XFHTiz5G8T4ILZBtMjtOpDn?usp=sharing) released!
 
 🤗🤗🤗More training/inference scripts will be available in a few days.
 
