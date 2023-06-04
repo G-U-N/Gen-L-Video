@@ -1,0 +1,33 @@
+pretrained_model_path: "[YourPath]/follow-your-pose"
+output_dir: "./results/follow-your-pose-t2v/group/"
+
+
+train_data:
+  n_sample_frames: 16
+  video_path: "./c_data/mmpose/group_resize.mp4"
+  width: 512
+  height: 512
+  sample_start_idx: 0
+  sample_frame_rate: 3
+  prompt: ""
+validation_data:
+  video_length: 16
+  width: 512
+  height: 512
+  num_inference_steps: 50
+  guidance_scale: 12.5
+  num_inv_steps: 50
+  stride: 4
+  prompts:
+  - "Stormtroopers on the sea"
+  - "Stormtroopers on the beach"
+  - "Astronauts on the moon"
+  - "Robots in Antarctica"
+  - "Monkeys in the forest"
+  - "Astronauts on the beach"
+  - "Xenomorphs in the desert"
+  mix_prompts:
+
+seed: 33
+mixed_precision: fp16
+enable_xformers_memory_efficient_attention: True

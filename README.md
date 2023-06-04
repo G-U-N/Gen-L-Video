@@ -42,7 +42,7 @@ Current methodologies for video generation and editing, while innovative, are of
 - **[2023.06.01]**: Basic code framework is now open-sourced [GLV](https://github.com/G-U-N/Gen-L-Video).
 - **[2023.06.01]**: Scripts: [one-shot-tuning](https://github.com/G-U-N/Gen-L-Video/blob/master/one-shot-tuning.py), [tuning-free-mix](https://github.com/G-U-N/Gen-L-Video/blob/master/tuning-free-mix.py), [tuning-free-inpaint](https://github.com/G-U-N/Gen-L-Video/blob/master/tuning-free-inpaint.py) is now available. 
 - **[2023.06.02]**: Scripts for preparing control videos including `canny`, `hough`, `hed`, `scribble`,`fake_scribble`, `pose`, `seg`, `depth`, and `normal` is now available, following the [instruction](https://github.com/G-U-N/Gen-L-Video#get-your-own-control-videos) to get your own control videos.
-- **[2023.06.02]**: We now support very long Pose-to-Video generation with pretrained [Follow-Your-Pose](https://github.com/mayuelala/FollowYourPose) and extend it to multi-text conditioned without introducing higher computation or VRAM requirement.
+- **[2023.06.04]**: We now support very long Pose-to-Video generation with pretrained [Follow-Your-Pose](https://github.com/mayuelala/FollowYourPose) and extend it to multi-text conditioned without introducing higher computation or VRAM requirements. 
 
 🤗🤗🤗More training/inference scripts will be available in a few days.
 
@@ -205,6 +205,11 @@ accelerate launch one-shot-tuning.py --control=[your control]
 ```shell
 accelerate launch tuning-free-inpaint.py
 ```
+4. Long video generation with pretrained. 
+
+```shell
+accelerate launch follow-your-pose-long.py
+```
 
 
 
@@ -355,13 +360,13 @@ All the following videos are directly generated with the pretrained Stable Diffu
 </tr>
 </table>
 
-#### Long Video Generation with Pretrained Short Video Diffusion Model
+#### Long Video Generation with Pretrained Short Text-to-Video Diffusion Model
 
 All the following videos are directly generated with the pre-trained VideoCrafter without additional training. 
 
 <table class="center">
 <tr>
-  <td style="text-align:center;" colspan="4"><b>Long Video Generation with Pretrained Short Video Diffusion Model</b></td>
+  <td style="text-align:center;" colspan="4"><b>Long Video Generation with Pretrained Short Text-to-Video Diffusion Model</b></td>
 </tr>
 <tr>
   <td><img src="./statics/gifs/ride-horse-iso-1.gif"></td>
@@ -386,6 +391,31 @@ All the following videos are directly generated with the pre-trained VideoCrafte
   <td width=25% style="text-align:center;">"A monkey is drinking water." (Gen-L-Video)</td>
   <td width=25% style="text-align:center;">"A car is moving on the road." (Isolated)</td>
     <td width=25% style="text-align:center;">"A car is moving on the road." (Gen-L-Video)</td>
+</tr>
+</table>
+#### Follow-Your-Pose: Long Video Generation with Pretrained Pose-to-Video
+
+The original generated videos (gifs) are over 100 MB, we compress them to upload them to GitHub.
+
+<table class="center">
+<tr>
+  <td style="text-align:center;" colspan="2"><b>Long Video Generation with Pretrained Pose-to-Video</b></td>
+</tr>
+<tr>
+  <td><img src="./statics/gifs/kun.gif"></td>  
+    <td><img src="./statics/gifs/mabaoguo.gif"></td>   
+</tr>
+<tr>
+  <td width=50% style="text-align:center;"> "Astronaut in the beach."</td>
+  <td width=50% style="text-align:center;">"Astronaut in the beach."</td>
+</tr>
+<tr>
+  <td><img src="./statics/gifs/fight.gif"></td>
+  <td><img src="./statics/gifs/group.gif"></td>
+</tr>
+<tr>
+  <td width=50% style="text-align:center;">"Hulk in the sea."</td>
+  <td width=50% style="text-align:center;">"Stormtroopers in the beach."</td>
 </tr>
 </table>
 
