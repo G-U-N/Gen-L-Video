@@ -29,12 +29,8 @@ image-reward==1.2
 imageio==2.27.0
 importlib-metadata==6.1.0
 importlib-resources==5.12.0
-ipywidgets==8.0.6
 jedi==0.18.2
 jinja2==3.1.2
-jupyter-client==8.1.0
-jupyter-core==5.3.0
-jupyterlab-widgets==3.0.7
 kiwisolver==1.4.4
 lit==16.0.0
 markdown==3.4.3
@@ -60,7 +56,6 @@ nvidia-nvtx-cu11==11.7.91
 oauthlib==3.2.2
 omegaconf==2.3.0
 opencv-python==4.7.0.72
-pandas==2.0.1
 parso==0.8.3
 pexpect==4.8.0
 pickleshare==0.7.5
