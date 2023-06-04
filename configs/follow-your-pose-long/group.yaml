@@ -4,7 +4,7 @@ output_dir: "./results/follow-your-pose-t2v/group/"
 
 train_data:
   n_sample_frames: 16
-  video_path: "./c_data/mmpose/group_resize.mp4"
+  video_path: "./c_data/mmpose/group.mp4"
   width: 512
   height: 512
   sample_start_idx: 0
