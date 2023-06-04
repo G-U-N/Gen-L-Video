@@ -128,7 +128,7 @@ adapter_paths={
 ```
 3. In `configs/one-shot-tuning/hike.yaml`, set
 ```yaml
-pretrained_model_path: "andite/anything-v4.0"
+pretrained_model_path: "weights/anything-v4.0"
 ```
 
 Then all the other weights are able to be automatically downloaded through the API of Hugging Face.
