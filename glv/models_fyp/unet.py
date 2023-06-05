@@ -448,6 +448,7 @@ class UNet3DConditionModel(ModelMixin, ConfigMixin):
             "CrossAttnDownBlock3D",
             "DownBlock3D"
         ]
+        config["mid_block_type"] = "UNetMidBlock3DCrossAttn"	
         config["up_block_types"] = [
             "UpBlock3D",
             "CrossAttnUpBlock3D",
