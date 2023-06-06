@@ -89,7 +89,8 @@ git clone https://github.com/facebookresearch/segment-anything.git
 cd segment-anything
 pip install -e .
 cd ..
-# If you have a CUDA environment, please make sure the environment variable CUDA_HOME is set. If the cuda version of the system conflicts with the cudatoolkit version, See: https://github.com/G-U-N/Gen-L-Video/discussions/7
+# If you have a CUDA environment, please make sure the environment variable CUDA_HOME is set. 
+# If the cuda version of the system conflicts with the cudatoolkit version, See: https://github.com/G-U-N/Gen-L-Video/discussions/7
 git clone https://github.com/IDEA-Research/GroundingDINO.git
 cd GroundingDINO
 pip install -e .
