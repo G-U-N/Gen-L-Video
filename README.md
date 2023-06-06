@@ -184,7 +184,7 @@ Now you should be able to run your Grounding DINO with pre-downloaded bert weigh
  cd ControlNet
  git checkout f4748e3
  mv ../process_data.py .
- python process_data.py --v_path=../data --t_path==../t_data --c_path==../c_data --fps=10
+ python process_data.py --v_path=../data --t_path=../t_data --c_path=../c_data --fps=10
  ```
 
 
