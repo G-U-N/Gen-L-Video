@@ -65,7 +65,17 @@ conda activate glv
 conda install pytorch==1.13.1 torchvision==0.14.1 torchaudio==0.13.1 pytorch-cuda=11.6 -c pytorch -c nvidia
 ```
 
-### Install Grounding DINO and SAM
+### Install [Xformers](https://github.com/facebookresearch/xformers)
+```shell
+# (Optional) Makes the build much faster
+pip install ninja
+# Set TORCH_CUDA_ARCH_LIST if running and building on different GPU types
+pip install -v -U git+https://github.com/facebookresearch/xformers.git@main#egg=xformers
+# (this can take dozens of minutes)
+```
+
+
+### Install [SAM](https://github.com/facebookresearch/segment-anything) and [Grounding DINO](https://github.com/IDEA-Research/GroundingDINO)
 
 ```SHELL
 pip install git+https://github.com/facebookresearch/segment-anything.git
@@ -79,7 +89,7 @@ git clone https://github.com/facebookresearch/segment-anything.git
 cd segment-anything
 pip install -e .
 cd ..
-# If you have a CUDA environment, please make sure the environment variable CUDA_HOME is set. 
+# If you have a CUDA environment, please make sure the environment variable CUDA_HOME is set. If the cuda version of the system conflicts with the cudatoolkit version, See: https://github.com/G-U-N/Gen-L-Video/discussions/7
 git clone https://github.com/IDEA-Research/GroundingDINO.git
 cd GroundingDINO
 pip install -e .
@@ -91,26 +101,7 @@ Note that if you are using GPU clusters that the management node has no access t
 Make sure git-lfs is available. See: https://github.com/git-lfs/git-lfs/blob/main/INSTALLING.md
 
 ```shell
-mkdir weights
-cd weights
-
-# Vit-H SAM model.
-wget https://dl.fbaipublicfiles.com/segment_anything/sam_vit_h_4b8939.pth
-
-# Part Grounding Swin-Base Model.
-wget https://github.com/Cheems-Seminar/segment-anything-and-name-it/releases/download/v1.0/swinbase_part_0a0000.pth
-
-# Grounding DINO Model. 
-wget https://github.com/IDEA-Research/GroundingDINO/releases/download/v0.1.0-alpha2/groundingdino_swinb_cogcoor.pth
-
-
-# Download the Pretrained T2I-Adapters
-git clone https://huggingface.co/TencentARC/T2I-Adapter
-
-# Optional 
-git clone https://huggingface.co/andite/anything-v4.0
-git clone https://huggingface.co/shgao/edit-anything-v0-3
-git clone https://huggingface.co/stabilityai/stable-diffusion-2-depth
+bash scripts/download_pretrained_models.sh
 ```
 
 After downloading them, you should specify the absolute/relative path of them in the config files.
