@@ -137,7 +137,6 @@ dependencies:
     - wcwidth==0.2.6
     - werkzeug==2.2.3
     - widgetsnbextension==4.0.7
-    - xformers==0.0.16
     - yapf==0.33.0
     - yarg==0.1.9
     - zipp==3.15.0
@@ -145,4 +144,5 @@ dependencies:
     - scikit-image==0.21.0
     - prettytable==3.6.0
     - moviepy==1.0.3
+    - chardet==5.1.0
 
