@@ -50,7 +50,12 @@ Current methodologies for video generation and editing, while innovative, are of
 
 ## Setup
 
-Feel free to open issues for any possible setup problems.
+#### Clone the Repo
+```shell
+git clone https://github.com/G-U-N/Gen-L-Video
+cd Gen-L-Video
+# The repo might be too large to clone because many long gifs are over 100 M. Forked the repo, delete the statics, and then clone it. 
+```
 
 #### Install Environment via Anaconda
 
