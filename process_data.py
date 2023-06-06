@@ -317,8 +317,8 @@ parser.add_argument("--v_path",default="../data")
 parser.add_argument("--t_path",default="../t_data")
 parser.add_argument("--c_path",default="../c_data")
 parser.add_argument("--control_task",default="multi")
-parser.add_argument("--trim_value",default=100)
-parser.add_argument("--fps",default=10)
+parser.add_argument("--trim_value",default=100,type=int)
+parser.add_argument("--fps",default=10,type=int)
 parser.add_argument("--split",default=0)
 
 if __name__ == "__main__":
