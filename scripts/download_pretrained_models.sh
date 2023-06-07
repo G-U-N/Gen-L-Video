@@ -18,37 +18,37 @@ git lfs pull
 cd ..
 
 GIT_LFS_SKIP_SMUDGE=1 git clone https://huggingface.co/andite/anything-v4.0
-rm -rf **/**/*.bin
-rm -rf **/**/*.safetensors
+rm -rf ./anything-v4.0/**/*.bin
+rm -rf ./anything-v4.0/**/*.safetensors
 wget -P ./anything-v4.0/safety_checker/ https://huggingface.co/andite/anything-v4.0/resolve/main/safety_checker/model.safetensors
 wget -P ./anything-v4.0/safety_checker/ https://huggingface.co/andite/anything-v4.0/resolve/main/safety_checker/pytorch_model.bin 
 wget -P ./anything-v4.0/text_encoder/ https://huggingface.co/andite/anything-v4.0/resolve/main/text_encoder/model.safetensors
 wget -P ./anything-v4.0/text_encoder/ https://huggingface.co/andite/anything-v4.0/resolve/main/text_encoder/pytorch_model.bin 
 wget -P ./anything-v4.0/unet/ https://huggingface.co/andite/anything-v4.0/resolve/main/unet/diffusion_pytorch_model.bin
 wget -P ./anything-v4.0/unet/ https://huggingface.co/andite/anything-v4.0/resolve/main/unet/diffusion_pytorch_model.safetensors
-wget -P ./anything-v4.0/vae https://huggingface.co/andite/anything-v4.0/resolve/main/vae/diffusion_pytorch_model.bin
-wget -P ./anything-v4.0/vae https://huggingface.co/andite/anything-v4.0/resolve/main/vae/diffusion_pytorch_model.safetensors
+wget -P ./anything-v4.0/vae/ https://huggingface.co/andite/anything-v4.0/resolve/main/vae/diffusion_pytorch_model.bin
+wget -P ./anything-v4.0/vae/ https://huggingface.co/andite/anything-v4.0/resolve/main/vae/diffusion_pytorch_model.safetensors
 
 GIT_LFS_SKIP_SMUDGE=1 git clone https://huggingface.co/stabilityai/stable-diffusion-2-inpainting
-rm -rf **/**/*.bin
-rm -rf **/**/*.safetensors
-wget -P ./stable-diffusion-2-inpainting/text_encoder https://huggingface.co/stabilityai/stable-diffusion-2-inpainting/resolve/main/text_encoder/model.safetensors
-wget -P ./stable_diffusion-2-inpainting/text_encoder https://huggingface.co/stabilityai/stable-diffusion-2-inpainting/resolve/main/text_encoder/pytorch_model.bin
-wget -P ./stable_diffusion-2-inpainting/unet https://huggingface.co/stabilityai/stable-diffusion-2-inpainting/resolve/main/unet/diffusion_pytorch_model.bin
-wget -P ./stable_diffusion-2-inpainting/unet https://huggingface.co/stabilityai/stable-diffusion-2-inpainting/resolve/main/unet/diffusion_pytorch_model.safetensors
-wget -P ./stable_diffusion-2-inpainting/vae https://huggingface.co/stabilityai/stable-diffusion-2-inpainting/resolve/main/vae/diffusion_pytorch_model.bin
-wget -P ./stable_diffusion-2-inpainting/vae https://huggingface.co/stabilityai/stable-diffusion-2-inpainting/resolve/main/vae/diffusion_pytorch_model.safetensors
+rm -rf ./stable-diffusion-2-inpainting/**/*.bin
+rm -rf ./stable-diffusion-2-inpainting/**/*.safetensors
+wget -P ./stable-diffusion-2-inpainting/text_encoder/ https://huggingface.co/stabilityai/stable-diffusion-2-inpainting/resolve/main/text_encoder/model.safetensors
+wget -P ./stable_diffusion-2-inpainting/text_encoder/ https://huggingface.co/stabilityai/stable-diffusion-2-inpainting/resolve/main/text_encoder/pytorch_model.bin
+wget -P ./stable_diffusion-2-inpainting/unet/ https://huggingface.co/stabilityai/stable-diffusion-2-inpainting/resolve/main/unet/diffusion_pytorch_model.bin
+wget -P ./stable_diffusion-2-inpainting/unet/ https://huggingface.co/stabilityai/stable-diffusion-2-inpainting/resolve/main/unet/diffusion_pytorch_model.safetensors
+wget -P ./stable_diffusion-2-inpainting/vae/ https://huggingface.co/stabilityai/stable-diffusion-2-inpainting/resolve/main/vae/diffusion_pytorch_model.bin
+wget -P ./stable_diffusion-2-inpainting/vae/ https://huggingface.co/stabilityai/stable-diffusion-2-inpainting/resolve/main/vae/diffusion_pytorch_model.safetensors
 
 GIT_LFS_SKIP_SMUDGE=1 git clone https://huggingface.co/stabilityai/stable-diffusion-2-depth
-rm -rf **/**/*.bin
-rm -rf **/**/*.safetensors
-wget -P ./stable-diffusion-2-depth/depth_estimator https://huggingface.co/stabilityai/stable-diffusion-2-depth/resolve/main/depth_estimator/model.safetensors
-wget -P ./stable-diffusion-2-depth/depth_estimator https://huggingface.co/stabilityai/stable-diffusion-2-depth/resolve/main/depth_estimator/pytorch_model.bin
-wget -P ./stable-diffusion-2-depth/text_encoder https://huggingface.co/stabilityai/stable-diffusion-2-depth/resolve/main/text_encoder/pytorch_model.bin
-wget -P ./stable-diffusion-2-depth/unet https://huggingface.co/stabilityai/stable-diffusion-2-depth/resolve/main/unet/diffusion_pytorch_model.bin
-wget -P ./stable-diffusion-2-depth/unet https://huggingface.co/stabilityai/stable-diffusion-2-depth/resolve/main/unet/diffusion_pytorch_model.safetensors
-wget -P ./stable-diffusion-2-depth/vae https://huggingface.co/stabilityai/stable-diffusion-2-depth/resolve/main/vae/diffusion_pytorch_model.bin
-wget -P ./stable-diffusion-2-depth/vae https://huggingface.co/stabilityai/stable-diffusion-2-depth/resolve/main/vae/diffusion_pytorch_model.safetensors
+rm -rf ./stable-diffusion-2-depth/**/*.bin
+rm -rf ./stable-diffusion-2-depth/**/*.safetensors
+wget -P ./stable-diffusion-2-depth/depth_estimator/ https://huggingface.co/stabilityai/stable-diffusion-2-depth/resolve/main/depth_estimator/model.safetensors
+wget -P ./stable-diffusion-2-depth/depth_estimator/ https://huggingface.co/stabilityai/stable-diffusion-2-depth/resolve/main/depth_estimator/pytorch_model.bin
+wget -P ./stable-diffusion-2-depth/text_encoder/ https://huggingface.co/stabilityai/stable-diffusion-2-depth/resolve/main/text_encoder/pytorch_model.bin
+wget -P ./stable-diffusion-2-depth/unet/ https://huggingface.co/stabilityai/stable-diffusion-2-depth/resolve/main/unet/diffusion_pytorch_model.bin
+wget -P ./stable-diffusion-2-depth/unet/ https://huggingface.co/stabilityai/stable-diffusion-2-depth/resolve/main/unet/diffusion_pytorch_model.safetensors
+wget -P ./stable-diffusion-2-depth/vae/ https://huggingface.co/stabilityai/stable-diffusion-2-depth/resolve/main/vae/diffusion_pytorch_model.bin
+wget -P ./stable-diffusion-2-depth/vae/ https://huggingface.co/stabilityai/stable-diffusion-2-depth/resolve/main/vae/diffusion_pytorch_model.safetensors
 
 git clone https://huggingface.co/shgao/edit-anything-v0-3
 
