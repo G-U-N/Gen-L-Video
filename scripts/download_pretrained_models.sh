@@ -50,9 +50,30 @@ wget -P ./stable-diffusion-2-depth/unet/ https://huggingface.co/stabilityai/stab
 wget -P ./stable-diffusion-2-depth/vae/ https://huggingface.co/stabilityai/stable-diffusion-2-depth/resolve/main/vae/diffusion_pytorch_model.bin
 wget -P ./stable-diffusion-2-depth/vae/ https://huggingface.co/stabilityai/stable-diffusion-2-depth/resolve/main/vae/diffusion_pytorch_model.safetensors
 
+
+GIT_LFS_SKIP_SMUDGE=1 git clone https://huggingface.co/stabilityai/stable-diffusion-2-depth
+rm -rf ./stable-diffusion-2-depth/**/*.bin
+rm -rf ./stable-diffusion-2-depth/**/*.safetensors
+wget -P ./stable-diffusion-2-depth/depth_estimator/ https://huggingface.co/stabilityai/stable-diffusion-2-depth/resolve/main/depth_estimator/model.safetensors
+wget -P ./stable-diffusion-2-depth/depth_estimator/ https://huggingface.co/stabilityai/stable-diffusion-2-depth/resolve/main/depth_estimator/pytorch_model.bin
+wget -P ./stable-diffusion-2-depth/text_encoder/ https://huggingface.co/stabilityai/stable-diffusion-2-depth/resolve/main/text_encoder/pytorch_model.bin
+wget -P ./stable-diffusion-2-depth/unet/ https://huggingface.co/stabilityai/stable-diffusion-2-depth/resolve/main/unet/diffusion_pytorch_model.bin
+wget -P ./stable-diffusion-2-depth/unet/ https://huggingface.co/stabilityai/stable-diffusion-2-depth/resolve/main/unet/diffusion_pytorch_model.safetensors
+wget -P ./stable-diffusion-2-depth/vae/ https://huggingface.co/stabilityai/stable-diffusion-2-depth/resolve/main/vae/diffusion_pytorch_model.bin
+wget -P ./stable-diffusion-2-depth/vae/ https://huggingface.co/stabilityai/stable-diffusion-2-depth/resolve/main/vae/diffusion_pytorch_model.safetensors
+
+
+git clone https://huggingface.co/CompVis/stable-diffusion-v1-4
+wget https://huggingface.co/YueMafighting/FollowYourPose_v1/resolve/main/followyourpose_checkpoint-1000/pytorch_model.bin
+rm stable-diffusion-v1-4/unet/diffusion_pytorch_model.bin stable-diffusion-v1-4/unet/diffusion_pytorch_model.safetensors
+rm stable-diffusion-v1-4/text_encoder/model.safetensors stable-diffusion-v1-4/vae/diffusion_pytorch_model.safetensors 
+mv pytorch_model.bin stable-diffusion-v1-4/unet/diffusion_pytorch_model.bin
+wget https://huggingface.co/YueMafighting/FollowYourPose_v1/resolve/main/pose_encoder.pth
+mv pose_encoder.pth T2I-Adapter/models
+mv stable-diffusion-v1-4 follow-your-pose
+
 git clone https://huggingface.co/shgao/edit-anything-v0-3
 
-git clone https://huggingface.co/YueMafighting/FollowYourPose_v1
 
 declare -a files=(
     "./weights/sam_vit_h_4b8939.pth"
