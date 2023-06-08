@@ -408,36 +408,37 @@ def main(
                         full_video = rearrange(full_video, "b f c h w -> (b f) c h w")
                         clip_length = validation_data.video_length
                         ddim_inv_latent = None
-                        if validation_data.use_inv_latent and run_isolated:
-                            ddim_inv_latent_lst = []
-                            for i in range(0,video_length-clip_length+1,clip_length):
-                                control = full_control_video[:,:,i:i+clip_length] if full_control_video is not None else None 
-                                latents = vae.encode(full_video[i:i+clip_length]).latent_dist.sample()
-                                latents = rearrange(latents, "(b f) c h w -> b c f h w", f=clip_length)
-                                latents = latents * 0.18215
-                                ddim_inv_latent = ddim_inversion(
-                                validation_pipeline, ddim_inv_scheduler, video_latent=latents,
-                                num_inv_steps=validation_data.num_inv_steps, prompt="", clip_id = i, control=control)[-1].to(weight_dtype)
-                                ddim_inv_latent_lst.append(ddim_inv_latent)
-                                
-                            inv_latents_path = os.path.join(output_dir, f"inv_latents/ddim_latent-{global_step}.pt")
-                            ddim_inv_latent = torch.cat(ddim_inv_latent_lst,dim=2)
-                            torch.save(ddim_inv_latent, inv_latents_path)
+                        if run_isolated:
+                            if validation_data.use_inv_latent:
+                                ddim_inv_latent_lst = []
+                                for i in range(0,video_length-clip_length+1,clip_length):
+                                    control = full_control_video[:,:,i:i+clip_length] if full_control_video is not None else None 
+                                    latents = vae.encode(full_video[i:i+clip_length]).latent_dist.sample()
+                                    latents = rearrange(latents, "(b f) c h w -> b c f h w", f=clip_length)
+                                    latents = latents * 0.18215
+                                    ddim_inv_latent = ddim_inversion(
+                                    validation_pipeline, ddim_inv_scheduler, video_latent=latents,
+                                    num_inv_steps=validation_data.num_inv_steps, prompt="", clip_id = i, control=control)[-1].to(weight_dtype)
+                                    ddim_inv_latent_lst.append(ddim_inv_latent)
 
-                        for idx, prompt in enumerate(validation_data.prompts):
-                            sample_lst = []
-                            for i in range(0,video_length-clip_length+1,clip_length):
-                                control = full_control_video[:,:,i:i+clip_length] if full_control_video is not None else None 
-                                sample = validation_pipeline(prompt, generator=generator, latents=ddim_inv_latent[:,:,i:i+clip_length], clip_id=i,control=control,
-                                                         **validation_data).videos
-                                sample_lst.append(sample)
-                            sample = torch.cat(sample_lst,dim=2)
-                            save_videos_grid(sample, f"{output_dir}/samples/sample-{global_step}/{prompt}.gif")
-                            samples.append(sample)
-                        samples = torch.concat(samples)
-                        save_path = f"{output_dir}/samples/sample-{global_step}.gif"
-                        save_videos_grid(samples, save_path)
-                        logging.info(f"Saved samples to {save_path}")
+                                inv_latents_path = os.path.join(output_dir, f"inv_latents/ddim_latent-{global_step}.pt")
+                                ddim_inv_latent = torch.cat(ddim_inv_latent_lst,dim=2)
+                                torch.save(ddim_inv_latent, inv_latents_path)
+
+                            for idx, prompt in enumerate(validation_data.prompts):
+                                sample_lst = []
+                                for i in range(0,video_length-clip_length+1,clip_length):
+                                    control = full_control_video[:,:,i:i+clip_length] if full_control_video is not None else None 
+                                    sample = validation_pipeline(prompt, generator=generator, latents=ddim_inv_latent[:,:,i:i+clip_length], clip_id=i,control=control,
+                                                             **validation_data).videos
+                                    sample_lst.append(sample)
+                                sample = torch.cat(sample_lst,dim=2)
+                                save_videos_grid(sample, f"{output_dir}/samples/sample-{global_step}/{prompt}.gif")
+                                samples.append(sample)
+                            samples = torch.concat(samples)
+                            save_path = f"{output_dir}/samples/sample-{global_step}.gif"
+                            save_videos_grid(samples, save_path)
+                            logging.info(f"Saved samples to {save_path}")
 
                         if validation_data.use_inv_latent:
                             latents_lst = []

@@ -162,34 +162,35 @@ def main(
             generator.manual_seed(seed)
             ddim_inv_latent = None
             clip_length = validation_data.video_length
-            if validation_data.use_inv_latent and run_isolated:
-                # Convert videos to latent space
-                ddim_inv_latent_lst = []
-                for i in range(0,video_length-clip_length+1,clip_length):
-                    ddim_inv_latent = ddim_inversion_long(
-                    validation_pipeline_depth, ddim_inv_scheduler, video_latent=latents[:,:,i:i+clip_length],
-                    num_inv_steps=validation_data.num_inv_steps, prompt="", window_size=clip_length, stride=clip_length,pixel_values=pixel_values[i:i+clip_length])[-1].to(weight_dtype)
-                    ddim_inv_latent_lst.append(ddim_inv_latent)
-                    
-                inv_latents_path = os.path.join(output_dir, f"inv_latents/ddim_latent-iso.pt")
-                ddim_inv_latent = torch.cat(ddim_inv_latent_lst,dim=2)
-                torch.save(ddim_inv_latent, inv_latents_path)
-            for idx, prompt in enumerate(validation_data.prompts):
-                sample_lst = []
-                assert len(prompt) == video_length//clip_length
-                for i in range(0,video_length-clip_length+1,clip_length):
-                    validation_isodata = copy.deepcopy(validation_data)
-                    validation_isodata.stride = clip_length
-                    sample = validation_pipeline_depth(prompt[i//clip_length], pixel_values[i:i+clip_length],generator=generator, latents=ddim_inv_latent[:,:,i:i+clip_length],window_size=clip_length,
-                                             **validation_data).videos
-                    sample_lst.append(sample)
-                sample = torch.cat(sample_lst,dim=2)
-                save_videos_grid(sample, f"{output_dir}/samples/sample-iso/{prompt}.gif")
-                samples.append(sample)
-            samples = torch.concat(samples)
-            save_path = f"{output_dir}/samples/sample-iso.gif"
-            save_videos_grid(samples, save_path)
-            logging.info(f"Saved samples to {save_path}")
+            if run_isolated:
+                if validation_data.use_inv_latent:
+                    # Convert videos to latent space
+                    ddim_inv_latent_lst = []
+                    for i in range(0,video_length-clip_length+1,clip_length):
+                        ddim_inv_latent = ddim_inversion_long(
+                        validation_pipeline_depth, ddim_inv_scheduler, video_latent=latents[:,:,i:i+clip_length],
+                        num_inv_steps=validation_data.num_inv_steps, prompt="", window_size=clip_length, stride=clip_length,pixel_values=pixel_values[i:i+clip_length])[-1].to(weight_dtype)
+                        ddim_inv_latent_lst.append(ddim_inv_latent)
+                        
+                    inv_latents_path = os.path.join(output_dir, f"inv_latents/ddim_latent-iso.pt")
+                    ddim_inv_latent = torch.cat(ddim_inv_latent_lst,dim=2)
+                    torch.save(ddim_inv_latent, inv_latents_path)
+                for idx, prompt in enumerate(validation_data.prompts):
+                    sample_lst = []
+                    assert len(prompt) == video_length//clip_length
+                    for i in range(0,video_length-clip_length+1,clip_length):
+                        validation_isodata = copy.deepcopy(validation_data)
+                        validation_isodata.stride = clip_length
+                        sample = validation_pipeline_depth(prompt[i//clip_length], pixel_values[i:i+clip_length],generator=generator, latents=ddim_inv_latent[:,:,i:i+clip_length],window_size=clip_length,
+                                                 **validation_data).videos
+                        sample_lst.append(sample)
+                    sample = torch.cat(sample_lst,dim=2)
+                    save_videos_grid(sample, f"{output_dir}/samples/sample-iso/{prompt}.gif")
+                    samples.append(sample)
+                samples = torch.concat(samples)
+                save_path = f"{output_dir}/samples/sample-iso.gif"
+                save_videos_grid(samples, save_path)
+                logging.info(f"Saved samples to {save_path}")
             samples = []
             if validation_data.use_inv_latent:
                 inv_latents_path = os.path.join(output_dir, f"inv_latents/ddim_latent.pt")
