@@ -10,9 +10,9 @@ This repository is the official implementation of [Gen-L-Video](https://arxiv.or
 
 
 ---
-
+<p align="center">
 <img src="./statics/gifs/girl.gif" width=600px>
-
+</p>
 <p align="center">
   <a href="#Introduction">Introduction</a> •
   <a href="#Comparisons">Comparisons</a> •  
