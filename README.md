@@ -366,6 +366,8 @@ All the following videos are directly generated with the pretrained Stable Diffu
     <td width=25% style="text-align:center;">"Girl in the sun."</td>
 </tr>
 </table>
+
+
 #### Tuning-Free Long Video-to-Video Generation
 
 <table class="center">
