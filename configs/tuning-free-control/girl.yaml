@@ -1,0 +1,35 @@
+# The Minimum VRAM Requirement is around 10-15 GB. Longer video will not cost more.
+pretrained_model_path: "[Your Path]/chilloutmix"
+
+output_dir: "./results/tuning-free-control/girl/"
+
+train_data:
+  video_path: "data/girl.mp4"
+  control_path: "c_data/hed/girl.mp4"
+  prompt: ""
+  n_sample_frames: 15
+  width: 512
+  height: 512
+  sample_start_idx: 0
+  sample_frame_rate: 2
+controlnet_path: "[Your Path]/sd-controlnet-hed"
+controlnet_scale: 0.6
+validation_data:
+  prompts:
+   - "sunglasses, 8k, RAW photo, best quality, masterpiece, realistic, photo-realistic, professional lighting, photon mapping, radiosity, Korean Doll, park, white summer dress"
+   - 'extremely detailed CG unity 8k wallpaper, beautiful detailed girl, extremely detailed face and eye, ray tracing, god rays, front light, 1girl, upper body, korean, teenage, brown hair, skindentation, heavy breathing.'
+  video_length: 15
+  width: 512
+  height: 512
+  num_inference_steps: 50
+  guidance_scale: 12.5
+  use_inv_latent: True
+  num_inv_steps: 50
+  stride: 5
+  use_l2: False
+  strength: 0.2
+
+train_batch_size: 1
+seed: 33
+mixed_precision: fp16
+enable_xformers_memory_efficient_attention: True

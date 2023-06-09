@@ -11,7 +11,7 @@ This repository is the official implementation of [Gen-L-Video](https://arxiv.or
 
 ---
 
-
+<img src="./statics/gifs/girl.gif" width=600px>
 
 <p align="center">
   <a href="#Introduction">Introduction</a> •
@@ -45,6 +45,7 @@ Current methodologies for video generation and editing, while innovative, are of
 - **[2023.06.02]**: Scripts for preparing control videos including `canny`, `hough`, `hed`, `scribble`,`fake_scribble`, `pose`, `seg`, `depth`, and `normal` is now available, following the [instruction](https://github.com/G-U-N/Gen-L-Video#get-your-own-control-videos) to get your own control videos.
 - **[2023.06.04]**: We now support very long Pose-to-Video generation with pretrained [Follow-Your-Pose](https://github.com/mayuelala/FollowYourPose) and extend it to multi-text conditioned without introducing higher computation or VRAM requirements. 
 - **[2023.06.04]**: [Colab demo](https://colab.research.google.com/drive/1bWROxCbt7XFHTiz5G8T4ILZBtMjtOpDn?usp=sharing) released!
+- **[2023.06.09]**: We now support Video2Video generation (inspired by the image2image transition), capable of generating very realistic long videos of faces.  
 
 🤗🤗🤗More training/inference scripts will be available in a few days.
 
@@ -210,7 +211,14 @@ accelerate launch tuning-free-inpaint.py
 accelerate launch follow-your-pose-long.py
 ```
 
+5. Tuning-Free Long Video2Video generation
 
+```shell
+# canny 
+accelerate launch tuning-free-control.py --config=./configs/tuning-free-control/girl-glass.yaml 
+# hed
+accelerate launch tuning-free-control.py --config=./configs/tuning-free-control/girl.yaml
+```
 
 ## Comparisons
 
@@ -358,6 +366,21 @@ All the following videos are directly generated with the pretrained Stable Diffu
     <td width=25% style="text-align:center;">"Girl in the sun."</td>
 </tr>
 </table>
+#### Tuning-Free Long Video-to-Video Generation
+
+<table class="center">
+<tr>
+  <td style="text-align:center;" colspan="2"><b>Tuning-Free Long Video-to-Video Generation</b></td>
+</tr>
+<tr>
+  <td><img src="./statics/gifs/girl.gif"></td>  
+    <td><img src="./statics/gifs/girl-glass.gif"></td>   
+</tr>
+<tr>
+  <td width=50% style="text-align:center;"> "Girls."</td>
+  <td width=50% style="text-align:center;"> "Girls wearing sunglasses."</td>
+</tr>
+</table>
 
 #### Long Video Generation with Pretrained Short Text-to-Video Diffusion Model
 
@@ -419,7 +442,6 @@ The original generated videos (gifs) are over 100 MB, we compress them to upload
   <td width=50% style="text-align:center;">"Stormtroopers in the beach."</td>
 </tr>
 </table>
-
 #### Additional Results
 
 <table class="center">
