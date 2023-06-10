@@ -444,6 +444,7 @@ The original generated videos (gifs) are over 100 MB, we compress them to upload
   <td width=50% style="text-align:center;">"Stormtroopers in the beach."</td>
 </tr>
 </table>
+
 #### Additional Results
 
 <table class="center">
