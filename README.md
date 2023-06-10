@@ -468,9 +468,6 @@ The original generated videos (gifs) are over 100 MB, we compress them to upload
 <tr>
   <td><img src="./statics/gifs/rain.gif"></td> 
 </tr>
-<tr>
-  <td><img src="./statics/gifs/surf-skiing.gif"></td> 
-</tr>
 </table>
 
 ## Relevant Works
