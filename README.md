@@ -10,10 +10,6 @@ This repository is the official implementation of [Gen-L-Video](https://arxiv.or
 
 
 ---
-<p align="center">
-<img src="./statics/gifs/girl.gif" width=600px>
-</p>
-<p align="center">
   <a href="#Introduction">Introduction</a> •
   <a href="#Comparisons">Comparisons</a> •  
   <a href="#Setup">Setup</a> •
@@ -47,7 +43,6 @@ Current methodologies for video generation and editing, while innovative, are of
 - **[2023.06.04]**: [Colab demo](https://colab.research.google.com/drive/1bWROxCbt7XFHTiz5G8T4ILZBtMjtOpDn?usp=sharing) released!
 - **[2023.06.09]**: We now support Video2Video generation (inspired by the image2image transition), capable of generating very realistic long videos of faces.  
 
-🤗🤗🤗More training/inference scripts will be available in a few days.
 
 ## Setup
 
