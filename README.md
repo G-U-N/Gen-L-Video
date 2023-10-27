@@ -22,7 +22,7 @@ This repository is the official implementation of [Gen-L-Video](https://arxiv.or
 
 ## Introduction
 
-🔥🔥 **TL;DR:** **A** <font color=#FF2000> ***universal***</font>  **methodology that extends short video diffusion models for efficient** <font color=#FF2000>***multi-text conditioned long video***</font>  **generation and editing.**
+ **TL;DR:** **A** <font color=#FF2000> ***universal***</font>  **methodology that extends short video diffusion models for efficient** <font color=#FF2000>***multi-text conditioned long video***</font>  **generation and editing.**
 
 Current methodologies for video generation and editing, while innovative, are often confined to extremely short videos (typically **less than 24 frames**) and are **limited to a single text condition**. These constraints significantly limit their applications given that real-world videos usually consist of multiple segments, each bearing different semantic information. To address this challenge, we introduce a novel paradigm dubbed as ***Gen-L-Video*** capable of extending off-the-shelf short video diffusion models for generating and editing videos comprising **hundreds of frames** with **diverse semantic segments** ***without introducing additional training, all while preserving content consistency***.
 
@@ -466,20 +466,6 @@ The original generated videos (gifs) are over 100 MB, we compress them to upload
 </tr>
 </table>
 
-## Relevant Works
-`Tune-A-Video`: One-Shot Tuning of Image Diffusion Models for Text-to-Video Generation. [[paper](https://arxiv.org/abs/2212.11565)] [[code](https://github.com/showlab/Tune-A-Video)]
-
-`Fate-Zero`: Fusing Attentions for Zero-shot Text-based Video Editing. [[paper](https://arxiv.org/abs/2303.09535)] [[code](https://github.com/ChenyangQiQi/FateZero)]
-
-`Pix2Video`: Video Editing using Image Diffusion. [[paper](https://arxiv.org/abs/2303.12688)] [[code](https://github.com/G-U-N/Pix2Video.pytorch)]
-
-`VideoCrafter`: A Toolkit for Text-to-Video Generation and Editing. [[paper](https://arxiv.org/abs/2211.13221)] [[code](https://github.com/VideoCrafter/VideoCrafter)] 
-
-`ControlVideo`: Training-free Controllable Text-to-Video Generation. [[paper](https://arxiv.org/abs/2305.13077)] [[code](https://github.com/YBYBZhang/ControlVideo)]
-
-`Text2Video-Zero`: Text-to-Image Diffusion Models are Zero-Shot Video Generators. [[paper](https://arxiv.org/abs/2303.13439)] [[code](https://github.com/Picsart-AI-Research/Text2Video-Zero)]
-
-Other relevant works about video generation/editing can be obtained by this repo: [Awesome-Video-Diffusion](https://github.com/showlab/Awesome-Video-Diffusion).
 
 ## Acknowledgments
 
@@ -498,6 +484,3 @@ If you use any content of this repo for your work, please cite the following bib
 }
 ```
 
-## Contact
-
-I welcome collaborations from individuals/institutions who share a common interest in my work. Whether you have ideas to contribute, suggestions for improvements, or would like to explore partnership opportunities, I am open to discussing any form of collaboration. Please feel free to contact the author: **Fu-Yun Wang** ([wangfuyun@smail.nju.edu.cn](mailto:wangfuyun@smail.nju.edu.cn)). Enjoy the code.
