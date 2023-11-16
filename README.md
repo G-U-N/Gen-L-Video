@@ -14,10 +14,8 @@ This repository is the official implementation of [Gen-L-Video](https://arxiv.or
   <a href="#Comparisons">Comparisons</a> •  
   <a href="#Setup">Setup</a> •
   <a href="#Results">Results</a> •  
-   <a href="#Relevant-Works">Relevant Works</a> •   
    <a href="#Acknowledgments">Acknowledgments</a> •
   <a href="#Citation">Citation</a> •
-  <a href="#Contact">Contact</a>
 </p>
 
 ## Introduction
