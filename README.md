@@ -9,14 +9,9 @@ This repository is the official implementation of [Gen-L-Video](https://arxiv.or
 [![Project Website](https://img.shields.io/badge/Project-Website-orange)](https://g-u-n.github.io/projects/gen-long-video/index.html) [![arXiv](https://img.shields.io/badge/arXiv-2305.18264-b31b1b.svg)](https://arxiv.org/abs/2305.18264) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1bWROxCbt7XFHTiz5G8T4ILZBtMjtOpDn?usp=sharing)
 
 
----
-  <a href="#Introduction">Introduction</a> •
-  <a href="#Comparisons">Comparisons</a> •  
-  <a href="#Setup">Setup</a> •
-  <a href="#Results">Results</a> •  
-   <a href="#Acknowledgments">Acknowledgments</a> •
-  <a href="#Citation">Citation</a> •
-</p>
+
+You might be interested in [Gen-L^2](https://gen-l-2.github.io/), which works better.
+
 
 ## Introduction
 
