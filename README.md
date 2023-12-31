@@ -3,8 +3,6 @@
 
 This repository is the official implementation of [Gen-L-Video](https://arxiv.org/abs/2305.18264).
 
-**[Gen-L-Video: Multi-Text Conditioned Long Video Generation via Temporal Co-Denoising](https://arxiv.org/abs/2305.18264)** <br/>
-[Fu-Yun Wang](https://g-u-n.github.io), [Wenshuo Chen](https://winshot-thu.github.io/), [Guanglu Song](https://songguanglu.github.io/), [Han-Jia Ye](https://www.lamda.nju.edu.cn/yehj/), [Yu Liu](https://liuyu.us), [Hongsheng Li](https://www.ee.cuhk.edu.hk/~hsli/) <br/>
 
 [![Project Website](https://img.shields.io/badge/Project-Website-orange)](https://g-u-n.github.io/projects/gen-long-video/index.html) [![arXiv](https://img.shields.io/badge/arXiv-2305.18264-b31b1b.svg)](https://arxiv.org/abs/2305.18264) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1bWROxCbt7XFHTiz5G8T4ILZBtMjtOpDn?usp=sharing)
 
