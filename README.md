@@ -10,7 +10,7 @@ This repository is the official implementation of [Gen-L-Video](https://arxiv.or
 
 
 
-You might be interested in [Gen-L^2](https://gen-l-2.github.io/), which works better.
+> You might be interested in [Gen-L^2](https://gen-l-2.github.io/), which works better.
 
 
 ## Introduction
