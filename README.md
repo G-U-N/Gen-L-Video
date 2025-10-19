@@ -394,31 +394,7 @@ All the following videos are directly generated with the pre-trained VideoCrafte
 </table>
 
 
-#### Follow-Your-Pose: Long Video Generation with Pretrained Pose-to-Video
 
-The original generated videos (gifs) are over 100 MB, we compress them to upload them to GitHub.
-
-<table class="center">
-<tr>
-  <td style="text-align:center;" colspan="2"><b>Long Video Generation with Pretrained Pose-to-Video</b></td>
-</tr>
-<tr>
-  <td><img src="./statics/gifs/kun.gif"></td>  
-    <td><img src="./statics/gifs/mabaoguo.gif"></td>   
-</tr>
-<tr>
-  <td width=50% style="text-align:center;"> "Astronaut in the beach."</td>
-  <td width=50% style="text-align:center;">"Astronaut in the beach."</td>
-</tr>
-<tr>
-  <td><img src="./statics/gifs/fight.gif"></td>
-  <td><img src="./statics/gifs/group.gif"></td>
-</tr>
-<tr>
-  <td width=50% style="text-align:center;">"Hulk in the sea."</td>
-  <td width=50% style="text-align:center;">"Stormtroopers in the beach."</td>
-</tr>
-</table>
 
 #### Additional Results
 
